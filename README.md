@@ -9,6 +9,8 @@ The program adds reminder into default reminder list.
 The program needs reminder permission.
 
 ## How To Setup
+git clone https://github.com/wancom/CLIReminder
+cd CLIReminder/reminder
 swiftc -o remind main.swift
 sudo mv remind /usr/local/bin/
 
