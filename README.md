@@ -30,12 +30,12 @@ Time format is hour:minute
 You can use today and tomorrow as Date.  
   
 ### Example
-- remind TaskA today 19:00  
-- remind TaskB tomorrow 12:00  
-- remind TaskC 2020/6/20 9:00  
+- remind TaskA today 19:00
+- remind TaskB tomorrow 12:00
+- remind TaskC 2020/6/20 9:00
   
-- remind TaskD 9:00  
+- remind TaskD 9:00
   
-- remind "Happy New Year" 01/01 0:0  
+- remind "Happy New Year" 01/01 0:0
   
-- remind "You can use space using \"" tomorrow 9:00  
+- remind "You can use space using \"" tomorrow 9:00
