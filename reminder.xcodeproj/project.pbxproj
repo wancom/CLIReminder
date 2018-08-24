@@ -25,6 +25,7 @@
 /* Begin PBXFileReference section */
 		08583FD5212C215300376AE2 /* reminder */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = reminder; sourceTree = BUILT_PRODUCTS_DIR; };
 		08583FD8212C215400376AE2 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		08583FDF2130105F00376AE2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +42,7 @@
 		08583FCC212C215300376AE2 = {
 			isa = PBXGroup;
 			children = (
+				08583FDF2130105F00376AE2 /* README.md */,
 				08583FD7212C215400376AE2 /* reminder */,
 				08583FD6212C215300376AE2 /* Products */,
 			);
