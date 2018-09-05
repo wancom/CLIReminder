@@ -103,37 +103,58 @@ func checkPermission() -> Bool{
 
 
 
+
+
+
 //Main
+
+//Check arguments count
+if CommandLine.argc < 2 || CommandLine.argc > 4 {
+    print("Usage: \(CommandLine.arguments[0]) Title (Date) Time")
+    print("Example: \(CommandLine.arguments[0]) FooBar 2018/01/01 12:34")
+    exit(0)
+}
+
+//Check permission
 if !checkPermission() {
     print("Not permitted.")
     exit(1)
 }
 
-if CommandLine.argc == 3 { //Title and time
-    let title = CommandLine.arguments[1]
-    if let date = analyzeDate(date: "", time: CommandLine.arguments[2]) {
-        if addReminder(title: title, alarmDate: date) {
-            print("Add reminder");
-        }else{
-            print("Failed to add reminder");
-        }
+
+var date:Date = Date()
+let title = CommandLine.arguments[1]
+
+
+if CommandLine.argc == 2 {
+    //Title only
+    date = Date(timeIntervalSinceNow: 3600)
+}else if CommandLine.argc == 3 {
+    //Title and time
+    if let tdate = analyzeDate(date: "", time: CommandLine.arguments[2]) {
+        date = tdate
     }else{
         print("Invalid time(\(CommandLine.arguments[2]))")
     }
-}else if CommandLine.argc == 4 { //Title, date, and time
-    let title = CommandLine.arguments[1]
-    if let date = analyzeDate(date: CommandLine.arguments[2], time: CommandLine.arguments[3]) {
-        if addReminder(title: title, alarmDate: date) {
-            print("Add reminder");
-        }else{
-            print("Failed to add reminder");
-        }
+}else if CommandLine.argc == 4 {
+    //Title, date, and time
+    if let tdate = analyzeDate(date: CommandLine.arguments[2], time: CommandLine.arguments[3]) {
+        date = tdate
     }else{
         print("Invalid date(\(CommandLine.arguments[2]) \(CommandLine.arguments[3]))")
     }
+}
+
+//Add reminder
+if addReminder(title: title, alarmDate: date) {
+    let df = DateFormatter()
+    df.locale = Locale.current
+    df.dateFormat = "yyyy/MM/dd HH:mm"
+    let sdate = df.string(from: date)
+    
+    print("\(sdate) : \(title)");
+    print("Add reminder");
 }else{
-    print("Usage: \(CommandLine.arguments[0]) Title (Date) Time")
-    print("Example: \(CommandLine.arguments[0]) FooBar 2018/01/01 12:34")
-    exit(0)
+    print("Failed to add reminder");
 }
 
