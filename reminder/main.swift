@@ -16,6 +16,7 @@ func addReminder(title:String,alarmDate:Date) -> Bool {
     reminder.title = title
     reminder.calendar = eventStore.defaultCalendarForNewReminders()
     reminder.addAlarm(EKAlarm(absoluteDate: alarmDate))
+    reminder.dueDateComponents = Calendar.current.dateComponents(in: TimeZone.current, from: alarmDate)
     do {
         try eventStore.save(reminder, commit: true)
         return true
